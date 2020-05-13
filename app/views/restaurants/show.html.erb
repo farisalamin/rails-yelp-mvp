@@ -1,0 +1,14 @@
+<h1><%= @restaurant.name %></h1>
+<h3 class="text-secondary"><%= @restaurant.category.capitalize %></h3>
+<hr>
+<img src="https://source.unsplash.com/1600x900/?food,<%= @restaurant.category %>" alt="Card image cap" class="w-100 my-3" style="height: 200px; object-fit: cover;">
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.phone_number %></p>
+<hr>
+<%= link_to "+ Add new review", new_restaurant_review_path(@restaurant) %>
+<hr>
+<% @restaurant.reviews.each do |review| %>
+  <p><%= "⭐️" * review.rating %></p>
+  <p><%= review.content %></p>
+  <hr>
+<% end %>
